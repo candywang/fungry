@@ -1,0 +1,45 @@
+{
+  "name": "fungry",
+  "version": "1.0.0",
+  "description": "A restaurant app for those who are starving, indecisive, and/or picky.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack -d --watch",
+    "start": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cw323/fungry.git"
+  },
+  "author": "Candy Wang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cw323/fungry/issues"
+  },
+  "homepage": "https://github.com/cw323/fungry#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "nodemon": "^1.19.2",
+    "path": "^0.12.7",
+    "styled-components": "^4.4.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  },
+  "babel": {
+    "presets": [
+      "@babel/env",
+      "@babel/react"
+    ]
+  }
+}
