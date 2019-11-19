@@ -1,4 +1,5 @@
 import React from 'react';
+import GooglePlaces from './GooglePlaces.jsx';
 
 class ItemRatingForm extends React.Component {
   constructor(props) {
@@ -6,23 +7,22 @@ class ItemRatingForm extends React.Component {
     this.state = {
       // hasTried: true,
       establishment: '',
-      address: '',
+      address: [],
       item: '',
       rating: '10',
-      comment: ''
+      comment: '',
+      place: []
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.getAddress = this.getAddress.bind(this);
   }
 
   handleChange(event) {
     const target = event.target;
-    console.log(target, 'this is target')
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    console.log(value, 'this is value')
     const name = target.name;
-    console.log(name, 'this is name')
 
     this.setState({
       [name]: value
@@ -34,29 +34,18 @@ class ItemRatingForm extends React.Component {
     event.preventDefault();
   }
 
+  getAddress(result) {
+    this.setState({place: result});
+    console.log(result, 'result from function')
+  }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        {/* <label>
-          I've tried this:
-          <input
-            name="hasTried"
-            type="checkbox"
-            checked={this.state.hasTried}
-            onChange={this.handleChange} />
-        </label>
-        <br /> */}
-        <label>
-          Establishment:<br />
-          <input
-            name="establishment"
-            placeholder="Blue Bottle"
-            type="string"
-            value={this.state.establishment}
-            onChange={this.handleChange} />
-        </label>
+        Establishment:
         <br />
-        <label>
+        <GooglePlaces getAddress={this.getAddress}/>
+        {/* <label>
           Address:<br />
           <input
             name="address"
@@ -64,7 +53,7 @@ class ItemRatingForm extends React.Component {
             type="string"
             value={this.state.address}
             onChange={this.handleChange} />
-        </label>
+        </label> */}
         <br />
         <label>
           Item:<br />
@@ -75,6 +64,7 @@ class ItemRatingForm extends React.Component {
             value={this.state.item}
             onChange={this.handleChange} />
         </label>
+        <br />
         <br />
         <label>
           Rating:
@@ -92,12 +82,14 @@ class ItemRatingForm extends React.Component {
           </select>
         </label>
         <br />
+        <br />
         <label>
           Comment:<br />
           <textarea name="comment" placeholder="So delicious! The coffee is very fragrant and I love that they use organic milk. My fav latte so far, best with no ice and extra milk!" value={this.state.comment} onChange={this.handleChange} />
         </label>
         <br />
-        <input type="submit" value="Submit" />
+        <br />
+        <input type="submit" value="Save" />
       </form>
     );
   }
