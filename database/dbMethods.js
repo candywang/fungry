@@ -1,7 +1,7 @@
 const Item = require('./index.js');
 
 let get = (req, res) => {
-  Item.find({}, (err, docs) => {
+  Item.find({}).sort([['date', '-1']]).exec((err, docs) => {
     if (err) {
       res.send(err);
     } else {
