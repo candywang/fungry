@@ -5,17 +5,13 @@ class ItemRatingForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: '',
+      place_id: '',
       place: '',
       category: [],
-      street: '',
-      city: '',
-      state: '',
-      country: '',
+      address: [],
       item: '',
       rating: '10',
-      comment: '',
-      result: []
+      comment: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -41,16 +37,11 @@ class ItemRatingForm extends React.Component {
   getAddress(result) {
     let place = result.address.split(',');
     this.setState({
-      id: result.result[0].place_id,
+      place_id: result.result[0].place_id,
       place: place[0],
       category: result.result[0].types,
-      street: place[1],
-      city: place[2],
-      state: place[3],
-      country: place[4],
-      result: result.result
+      address: result.result[0].address_components,
     });
-    console.log(result, 'result from function')
   }
 
   render() {
