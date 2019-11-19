@@ -30,7 +30,7 @@ class ItemRatingForm extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log(this.state)
+    this.props.getForm(this.state);
     event.preventDefault();
   }
 
