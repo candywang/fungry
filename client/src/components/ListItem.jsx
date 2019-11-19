@@ -9,6 +9,7 @@ const ListItem = (props) => {
       placeName={item.place_name}
       category={item.category}
       date={item.date}
+      item={item.item}
       comment={item.comment}
       rating={item.rating}
       href={`https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${item.place_id}`}
@@ -16,7 +17,7 @@ const ListItem = (props) => {
   );
 
   return (
-    <div><ul>{listItem}</ul></div>
+    <div>{listItem}</div>
   )
 }
 
