@@ -15,8 +15,11 @@ app.get('/reviews', (req, res) => {
 });
 
 app.post('/reviews', (req, res) => {
-  console.log(req.body)
   db.save(req.body, res);
 });
+
+app.delete('/reviews', (req, res) => {
+  db.remove(req.body, res);
+})
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
