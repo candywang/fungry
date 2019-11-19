@@ -6,6 +6,7 @@ const ListItem = (props) => {
   const listItem = userList.map((item) =>
     <ListItemEntry
       key={item._id}
+      id={item._id}
       placeName={item.place_name}
       category={item.category}
       date={item.date}
@@ -13,11 +14,16 @@ const ListItem = (props) => {
       comment={item.comment}
       rating={item.rating}
       href={`https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${item.place_id}`}
+      delete={props.delete}
     />
   );
 
+  console.log(props.delete)
+
   return (
-    <div>{listItem}</div>
+    <div>
+      {listItem}
+    </div>
   )
 }
 

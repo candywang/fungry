@@ -51,6 +51,9 @@ const ListItemEntry = (props) => {
         </ItemRating>
       </LIRContainer>
       <Comment>{props.comment}</Comment>
+      <button onClick={() => {
+        props.delete(props.id)
+      }}>Delete</button>
     </div>
   )
 }
