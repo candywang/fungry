@@ -1,5 +1,13 @@
 import React from 'react';
+import styled from 'styled-components';
 import ListItemEntry from './ListItemEntry.jsx';
+
+const ReviewContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+`;
 
 const ListItem = (props) => {
   const userList = props.userList;
@@ -21,9 +29,9 @@ const ListItem = (props) => {
   console.log(props.delete)
 
   return (
-    <div>
+    <ReviewContainer>
       {listItem}
-    </div>
+    </ReviewContainer>
   )
 }
 

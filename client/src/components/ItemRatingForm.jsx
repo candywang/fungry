@@ -1,5 +1,20 @@
 import React from 'react';
+import styled from 'styled-components';
 import GooglePlaces from './GooglePlaces.jsx';
+
+const FormContainer = styled.form`
+  width: 400px;
+  padding: 10px;
+`;
+
+const InputContainer = styled.input`
+  width: 350px;
+`;
+
+const TextArea = styled.textarea`
+  width: 350px;
+  height: 100px;
+`;
 
 class ItemRatingForm extends React.Component {
   constructor(props) {
@@ -46,16 +61,16 @@ class ItemRatingForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <FormContainer onSubmit={this.handleSubmit}>
         Establishment:
         <br />
         <GooglePlaces getAddress={this.getAddress}/>
         <br />
         <label>
           Item:<br />
-          <input
+          <InputContainer
             name="item"
-            placeholder="iced latte"
+            placeholder="Iced Latte"
             type="string"
             value={this.state.item}
             onChange={this.handleChange} />
@@ -81,12 +96,12 @@ class ItemRatingForm extends React.Component {
         <br />
         <label>
           Comment:<br />
-          <textarea name="comment" placeholder="So delicious! The coffee is very fragrant and I love that they use organic milk. My fav latte so far, best with no ice and extra milk!" value={this.state.comment} onChange={this.handleChange} />
+          <TextArea name="comment" placeholder="So delicious! The coffee is very fragrant and I love that they use organic milk. My fav latte so far, best with no ice and extra milk!" value={this.state.comment} onChange={this.handleChange} />
         </label>
         <br />
         <br />
         <input type="submit" value="Save" />
-      </form>
+      </FormContainer>
     );
   }
 }

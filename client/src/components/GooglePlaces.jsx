@@ -3,6 +3,11 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
+import styled from 'styled-components';
+
+const InputContainer = styled.input`
+  width: 350px;
+`;
  
 class GooglePlaces extends React.Component {
   constructor(props) {
@@ -40,7 +45,7 @@ class GooglePlaces extends React.Component {
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
-            <input
+            <InputContainer
               {...getInputProps({
                 placeholder: 'Blue Bottle San Francisco',
                 className: 'location-search-input',
