@@ -27,24 +27,33 @@ class App extends React.Component {
     Axios.get('/reviews')
       .then(result => {
         this.setState({userList: result.data});
-      });
+      })
+      .catch(err => console.log(err));
   }
 
   getForm(review) {
-    console.log(review, 'rating from app');
     let newReview = review;
 
     Axios.post('/reviews', newReview)
-      .then(result => console.log(newReview, ' posted! Response: ', response))
+      .then(result => console.log(newReview, ' posted!'))
+      .then(this.getData())
       .catch(err);
   }
 
   deleteReview(id) {
-    console.log(id);
+    let itemId = {
+      data: {
+        _id: id
+      }
+    };
+
+    Axios.delete('/reviews', itemId)
+      .then(result => console.log(result.config.data, ' deleted!'))
+      .then(this.getData())
+      .catch(err => console.log(err));
   }
 
   render() {
-    console.log(this.state.userList)
     return (
         <div>
           <h1>Fungry.</h1>
