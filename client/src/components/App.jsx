@@ -4,7 +4,29 @@ import styled from 'styled-components';
 import ItemRatingForm from './ItemRatingForm.jsx';
 import ListItem from './ListItem.jsx';
 
+const Wrapper = styled.div`
+  width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #fff4f4;
+  border-radius: 2%;
+`;
 
+const Header = styled.h1`
+  text-align: center;
+  font: arial;
+`;
+
+const Header2 = styled.div`
+  text-align: center;
+  font-size: 14px;
+  font: arial;
+`;
+
+const Description = styled.div`
+  font-size: 14px;
+  font: arial;
+`;
 
 class App extends React.Component {
   constructor() {
@@ -55,14 +77,14 @@ class App extends React.Component {
 
   render() {
     return (
-        <div>
-          <h1>Fungry.</h1>
+        <Wrapper>
+          <Header>Fungry.</Header>
           {/* <h3>Fungry and can't decide where to eat? Press the button below to find a restaurant!</h3> */}
-          <h5>Rate the item you just tried - whether it was the best or worst you've ever had.</h5>
+          <Header2>A place to journal your food thoughts.</Header2>
           <ItemRatingForm getForm={this.getForm} />
-          <h5>Items you've tried:</h5>
+          <Description>Items you've tried:</Description>
           <ListItem userList={this.state.userList} delete={this.deleteReview} />
-        </div>
+        </Wrapper>
     )
   }
 }
