@@ -5,13 +5,17 @@ class ItemRatingForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // hasTried: true,
-      establishment: '',
-      address: [],
+      id: '',
+      place: '',
+      category: [],
+      street: '',
+      city: '',
+      state: '',
+      country: '',
       item: '',
       rating: '10',
       comment: '',
-      place: []
+      result: []
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -21,7 +25,7 @@ class ItemRatingForm extends React.Component {
 
   handleChange(event) {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.value;
     const name = target.name;
 
     this.setState({
@@ -35,7 +39,17 @@ class ItemRatingForm extends React.Component {
   }
 
   getAddress(result) {
-    this.setState({place: result});
+    let place = result.address.split(',');
+    this.setState({
+      id: result.result[0].place_id,
+      place: place[0],
+      category: result.result[0].types,
+      street: place[1],
+      city: place[2],
+      state: place[3],
+      country: place[4],
+      result: result.result
+    });
     console.log(result, 'result from function')
   }
 
@@ -45,15 +59,6 @@ class ItemRatingForm extends React.Component {
         Establishment:
         <br />
         <GooglePlaces getAddress={this.getAddress}/>
-        {/* <label>
-          Address:<br />
-          <input
-            name="address"
-            placeholder="123 Blue Bottle Ln. San Francisco, CA 94105"
-            type="string"
-            value={this.state.address}
-            onChange={this.handleChange} />
-        </label> */}
         <br />
         <label>
           Item:<br />
