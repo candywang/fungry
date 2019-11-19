@@ -6,7 +6,7 @@ class ItemRatingForm extends React.Component {
     super(props);
     this.state = {
       place_id: '',
-      place: '',
+      place_name: '',
       category: [],
       address: [],
       item: '',
@@ -38,7 +38,7 @@ class ItemRatingForm extends React.Component {
     let place = result.address.split(',');
     this.setState({
       place_id: result.result[0].place_id,
-      place: place[0],
+      place_name: place[0],
       category: result.result[0].types,
       address: result.result[0].address_components,
     });
