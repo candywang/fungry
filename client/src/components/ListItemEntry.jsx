@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const ReviewContainer = styled.div`
+  padding: 10px;
+`;
+
 const LIRContainer = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -8,41 +12,40 @@ const LIRContainer = styled.div`
 
 const Link = styled.a`
   color: palevioletred;
-  font: arial;
   font-size: 16px;
   font-weight: bold;
+  padding-right: 10px;
 `;
 
 const ItemRating = styled.div`
   display: flex;
   justify-content: flex-start;
   color: black;
-  font: arial;
   font-size: 16px;
+  
 `;
 
 const Item = styled.div`
   color: black;
-  font: arial;
   font-size: 16px;
+  padding-right: 10px;
 `;
 
 const Rating = styled.div`
   color: black;
-  font: arial;
   font-size: 16px;
   font-weight: bold;
 `;
 
 const Comment = styled.div`
   color: grey;
-  font: arial;
   font-size: 14px;
+  padding: 5px 0px 5px 0px;
 `;
 
 const ListItemEntry = (props) => {
   return (
-    <div>
+    <ReviewContainer>
       <LIRContainer>
         <Link href={props.href}>{props.placeName}</Link>
         <ItemRating>
@@ -54,7 +57,7 @@ const ListItemEntry = (props) => {
       <button onClick={() => {
         props.delete(props.id)
       }}>Delete</button>
-    </div>
+    </ReviewContainer>
   )
 }
 

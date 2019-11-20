@@ -7,6 +7,7 @@ const ReviewContainer = styled.div`
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: flex-start;
+  padding: 5px 20px;
 `;
 
 const ListItem = (props) => {

@@ -14,18 +14,17 @@ const Wrapper = styled.div`
 
 const Header = styled.h1`
   text-align: center;
-  font: arial;
 `;
 
 const Header2 = styled.div`
   text-align: center;
   font-size: 14px;
-  font: arial;
 `;
 
-const Description = styled.div`
-  font-size: 14px;
-  font: arial;
+const Header3 = styled.div`
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
 `;
 
 class App extends React.Component {
@@ -82,7 +81,7 @@ class App extends React.Component {
           {/* <h3>Fungry and can't decide where to eat? Press the button below to find a restaurant!</h3> */}
           <Header2>A place to journal your food thoughts.</Header2>
           <ItemRatingForm getForm={this.getForm} />
-          <Description>Items you've tried:</Description>
+          <Header3>Items you've tried:</Header3>
           <ListItem userList={this.state.userList} delete={this.deleteReview} />
         </Wrapper>
     )
