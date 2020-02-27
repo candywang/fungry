@@ -47,7 +47,7 @@ class App extends React.Component {
   getData() {
     Axios.get('/reviews')
       .then(result => {
-        this.setState({userList: result.data});
+        this.setState({ userList: result.data });
       })
       .catch(err => console.log(err));
   }
@@ -76,14 +76,13 @@ class App extends React.Component {
 
   render() {
     return (
-        <Wrapper>
-          <Header>Fungry.</Header>
-          {/* <h3>Fungry and can't decide where to eat? Press the button below to find a restaurant!</h3> */}
-          <Header2>A place to journal your food thoughts.</Header2>
-          <ItemRatingForm getForm={this.getForm} />
-          <Header3>Items you've tried:</Header3>
-          <ListItem userList={this.state.userList} delete={this.deleteReview} />
-        </Wrapper>
+      <Wrapper>
+        <Header>Fungry.</Header>
+        <Header2>A place to journal your food thoughts.</Header2>
+        <ItemRatingForm getForm={this.getForm} />
+        <Header3>Items you've tried:</Header3>
+        <ListItem userList={this.state.userList} delete={this.deleteReview} />
+      </Wrapper>
     )
   }
 }

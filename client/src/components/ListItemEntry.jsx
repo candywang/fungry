@@ -22,7 +22,6 @@ const ItemRating = styled.div`
   justify-content: flex-start;
   color: black;
   font-size: 16px;
-  
 `;
 
 const Item = styled.div`
